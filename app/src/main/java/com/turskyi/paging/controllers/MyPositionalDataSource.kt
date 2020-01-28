@@ -11,10 +11,11 @@ internal class MyPositionalDataSource(private val employeeStorage: EmployeeStora
         params: LoadInitialParams,
         callback: LoadInitialCallback<Employee>
     ) {
-        Log.d("MyPositionalDataSource", "start = ${params.requestedStartPosition}, load size =  ${params.requestedLoadSize}")
-        val result =
+        Log.d("MyPositionalDataSource", "start = ${params.requestedStartPosition}," +
+                " load size =  ${params.requestedLoadSize}")
+        val list =
             employeeStorage.getData(params.requestedStartPosition, params.requestedLoadSize)
-        callback.onResult(result, 0)
+        callback.onResult(list, 0)
     }
 
     override fun loadRange(

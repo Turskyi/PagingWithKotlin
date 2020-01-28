@@ -10,7 +10,6 @@ import com.turskyi.paging.R
 import com.turskyi.paging.models.Employee
 import com.turskyi.paging.viewholders.EmployeeViewHolder
 
-
 internal open class EmployeeAdapter(diffUtilCallback: DiffUtil.ItemCallback<Employee>) :
     PagedListAdapter<Employee, EmployeeViewHolder>(diffUtilCallback) {
 

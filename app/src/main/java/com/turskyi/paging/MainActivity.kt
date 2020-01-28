@@ -14,6 +14,7 @@ import com.turskyi.paging.models.Employee
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.Executors.newSingleThreadExecutor
 
+/** List of numbers in the recycler view, just for the demonstration of paging */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: EmployeeAdapter
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    // TODO fix wrong thread
+    // TODO: to fix wrong thread
     @SuppressLint("WrongThread")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
 
         /* PagedList */
         val config = PagedList.Config.Builder()
+            /* If "true", then it should be created another viewType in Adapter "onCreateViewHolder"
+             while uploading */
             .setEnablePlaceholders(false)
             .setPageSize(10)
             .build()

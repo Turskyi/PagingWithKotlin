@@ -1,6 +1,5 @@
 package com.turskyi.paging
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.paging.PagedList
@@ -33,8 +32,6 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    // TODO: to fix wrong thread
-    @SuppressLint("WrongThread")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

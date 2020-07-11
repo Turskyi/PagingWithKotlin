@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.Executors.newSingleThreadExecutor
 
 /** List of numbers in the recycler view, just for the demonstration of paging */
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var adapter: EmployeeAdapter
 
@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         /* DataSource */
         val dataSource = MyPositionalDataSource(EmployeeStorage())

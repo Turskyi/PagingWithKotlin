@@ -38,9 +38,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val config = PagedList.Config.Builder()
             /* If "true", then it should be created another viewType in Adapter "onCreateViewHolder"
              while uploading */
-            .setEnablePlaceholders(false)
+            .setEnablePlaceholders(true)
+            .setPageSize(5)
+                /* default value is equal "PageSize" * 3 */
             .setInitialLoadSizeHint(20)
-            .setPageSize(10)
+            /* default value is equal "PageSize" */
+            .setPrefetchDistance(30)
             .build()
 
         val pagedList = PagedList.Builder(dataSource, config)

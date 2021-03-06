@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Paging</string>
     <string name="id">ID</string>
+    <string name="wait">wait</string>
 </resources>

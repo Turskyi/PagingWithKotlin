@@ -10,7 +10,16 @@ class EmployeeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val idTextView:TextView = itemView.findViewById(R.id.id)
 
-    fun bind(employee: Employee?){
-        idTextView.text = employee?.id.toString()
+//    fun bind(employee: Employee?){
+//        idTextView.text = employee?.id.toString()
+//    }
+
+    fun bind(employee: Employee?) {
+        /** we use it in case we use "placeholders enabled" */
+        if (employee == null) {
+            idTextView.setText(R.string.wait)
+        } else {
+            idTextView.text = employee.id.toString()
+        }
     }
 }

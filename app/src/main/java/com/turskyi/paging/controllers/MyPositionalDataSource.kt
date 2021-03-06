@@ -11,19 +11,21 @@ internal class MyPositionalDataSource(private val employeeStorage: EmployeeStora
         params: LoadInitialParams,
         callback: LoadInitialCallback<Employee>
     ) {
-        Log.d("MyPositionalDataSource", "start = ${params.requestedStartPosition}," +
+        Log.d("===>", "init start = ${params.requestedStartPosition}," +
                 " load size =  ${params.requestedLoadSize}")
-        val list =
+        val resultList =
             employeeStorage.getData(params.requestedStartPosition, params.requestedLoadSize)
-        callback.onResult(list, 0)
+//           the start number is   "params.requestedStartPosition" since we set it explicitly  via
+//           .setInitialKey(initPage) in Main Activiy
+        callback.onResult(resultList, params.requestedStartPosition)
     }
 
     override fun loadRange(
         params: LoadRangeParams,
         callback: LoadRangeCallback<Employee>
     ) {
-        Log.d("MyPositionalDataSource", "start = ${params.startPosition}, load size =  ${params.loadSize}")
-        val result = employeeStorage.getData(params.startPosition, params.loadSize)
-        callback.onResult(result)
+        Log.d("===>", "start = ${params.startPosition}, load size =  ${params.loadSize}")
+        val resultList = employeeStorage.getData(params.startPosition, params.loadSize)
+        callback.onResult(resultList)
     }
 }
